@@ -1,8 +1,38 @@
 # 📊 AutoDashGen: AI-Powered Power BI Dashboard Generator
 
-![Project Preview](./images/preview.png)
+AutoDashGen is a full-stack application designed to automate the process of building Power BI dashboards. By uploading a CSV file, the platform's Python AI engine automatically profiles the dataset, handles missing data, generates optimized Power Query (M) code, designs custom DAX measures, recommends ideal visualization charts, and packages them with tailored Power BI visual themes.
 
-**AutoDashGen** is a modern, full-stack application designed to automate the process of building Power BI dashboards. By uploading a CSV file, the platform's Python AI engine automatically profiles the dataset, generates optimized Power Query (M) code, designs custom DAX measures, recommends ideal visualization charts, and packages them with tailored Power BI visual themes.
+---
+
+## 🏗️ System Architecture
+
+Below is the conceptual architecture of the AutoDashGen platform, outlining the flow from user data upload to compiling and exporting native Power BI dashboard artifacts:
+
+![AutoDashGen System Architecture](./images/Architecture.png)
+
+---
+
+## 🖥️ Application Walkthrough & Screenshots
+
+### 1️⃣ Step 1: Upload Dataset
+Easily upload your flat files (CSV) via the responsive drag-and-drop or file selector interface.
+![Upload Screen](./images/Screenshot%20\(453\).png)
+
+### 2️⃣ Step 2: Data Profiling & Cleaning Report
+Once uploaded, the engine profiles columns, identifies data types, flags missing values, and allows you to apply cleaning methods (like outlier treatment using the IQR method).
+![Data Profiling](./images/Screenshot%20\(454\).png)
+
+### 3️⃣ Step 3: Interactive Visual Canvas
+Review the AI-generated visual recommendations. The interface includes a draggable and resizable grid displaying various metric cards, line charts, bar charts, and data completeness summaries.
+![Interactive Canvas](./images/Screenshot%20\(455\).png)
+
+### 4️⃣ Step 4: Exporting Scripts & Themes
+Easily download the compiled Power Query (M) scripts, custom DAX measures, and Power BI JSON themes. You can export individual scripts or package the whole setup into a `.zip` file.
+![Export Options](./images/Screenshot%202026-03-08%20174553.png)
+
+### 5️⃣ Sample Generated Dashboard Outputs
+Here is a preview of the layout grids produced by the generator:
+![Dashboard Output Preview](./images/AutoDashGen_Dashboard%20Sample.png)
 
 ---
 
@@ -10,7 +40,7 @@
 
 ### 🧠 Backend AI & Data Profiling
 - **📊 Dataset Profiling:** Automatically identifies data types (Numeric, Categorical, Date/Time) and detects missing values.
-- **⚡ M-Query Generator:** Automates the creation of Power Query (M) scripts for data load and promotion of headers.
+- **⚡ M-Query Generator:** Automates the creation of Power Query (M) scripts for data load and header promotion.
 - **📈 DAX Measure Builder:** Generates ready-to-use DAX measures (Sums, Averages, aggregates) based on the profiled columns.
 - **🎨 Power BI Theme Creator:** Generates fully customized Power BI JSON themes dynamically for consistent branding.
 - **📦 PBIP Export System:** Packages the generated scripts, theme configuration, and measures into a Power BI Project (`.pbip`) structure.
@@ -56,6 +86,7 @@ AutoDashGen/
 │   │   ├── App.css           # Styling rules and variables
 │   │   └── index.js          # React entry point
 │   └── package.json          # Node dependencies and scripts
+├── images/                   # Screenshots and architecture diagrams
 └── README.md                 # Project documentation
 ```
 
@@ -102,12 +133,3 @@ AutoDashGen/
    npm start
    ```
    *The application will open in your browser at `http://localhost:3000`.*
-
----
-
-## 💡 How It Works
-
-1. **Upload:** User uploads a `.csv` dataset through the React UI.
-2. **Analysis:** The Flask backend parses the CSV with Pandas, profiles the columns, and triggers the recommendation engine.
-3. **Generation:** M-Query scripts and DAX aggregates are prepared, along with a theme configuration.
-4. **Download:** The dashboard displays the results and lets the user export `.dax` scripts, `.json` themes, or `.pbip` project structures.
