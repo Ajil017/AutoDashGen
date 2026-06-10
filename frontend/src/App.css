@@ -1,0 +1,8 @@
+.pbi-container { height: 100vh; display: flex; flex-direction: column; background: #f3f2f1; }
+.pbi-ribbon { height: 50px; background: #fff; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 0 20px; gap: 15px; }
+.pbi-workspace { flex: 1; display: flex; overflow: hidden; }
+.pbi-sidebar { width: 240px; background: #fff; border-right: 1px solid #ddd; padding: 15px; }
+.pbi-canvas { flex: 1; padding: 25px; overflow-y: auto; background: #eaeaea; }
+.visual-card { background: #fff; border-radius: 4px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.field-item { padding: 5px; cursor: pointer; font-size: 14px; }
+.field-item:hover { background: #f3f2f1; }
