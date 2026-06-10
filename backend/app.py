@@ -70,10 +70,12 @@ def upload_file():
         "artifacts": artifacts
     })
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+from logic.pbip_builder import create_pbip_structure
 
-    from logic.pbip_builder import create_pbip_structure
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
 
 @app.route('/export/<filename>', methods=['GET'])
 def export_dashboard(filename):

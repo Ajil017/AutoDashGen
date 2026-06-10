@@ -26,8 +26,9 @@ function App() {
     formData.append('file', file);
 
     try {
-      // Connecting to the Al Processing Engine on the Backend
-      const res = await axios.post('http://127.0.0.1:5000/upload', formData);
+      // Connecting to the AI Processing Engine on the Backend
+      const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:5000';
+      const res = await axios.post(`${API_BASE_URL}/upload`, formData);
       setResults(res.data);
     } catch (error) {
       console.error("Upload failed:", error);
